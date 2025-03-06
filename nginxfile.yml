@@ -17,5 +17,5 @@
 
     - name: Deploy static website
       copy:
-        src: files/index.html  # Path relative to the playbook directory
+        src: /var/lib/jenkins/workspace/JenkinswithAnsible/files/index.html #files/index.html  # Path relative to the playbook directory
         dest: /var/www/html/index.html
