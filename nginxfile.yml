@@ -12,5 +12,7 @@
         enabled: True
     - name: Deploy static website
       copy:
-        src: index.html # We have define a html page
-        dest: /var/www/html/
+        src: /var/lib/jenkins/workspace/JenkinswithAnsible/files/index.html
+        dest: /var/www/html/index.html
+        remote_src: yes
+
