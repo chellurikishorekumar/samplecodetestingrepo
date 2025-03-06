@@ -1,5 +1,2 @@
-[webservers]
-172.31.82.68
-
-[appserver]
+[slave]
 172.31.86.191
