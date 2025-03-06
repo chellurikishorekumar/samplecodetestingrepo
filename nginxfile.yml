@@ -1,18 +1,21 @@
 - hosts: all
-  become: True # Use sudo/root for tasks
+  become: true # Use sudo/root for tasks
   tasks:
-    - name: Install packages
+    - name: Enable nginx package repository
+      command: amazon-linux-extras enable nginx1
+
+    - name: Install nginx
       yum:
-        name: "httpd"
-        state: "present"
-    - name: Start httpd server
+        name: nginx
+        state: present
+
+    - name: Start nginx server
       service:
-        name: httpd
+        name: nginx
         state: started
-        enabled: True
+        enabled: yes
+
     - name: Deploy static website
       copy:
-        src: /var/lib/jenkins/workspace/JenkinswithAnsible/files/index.html
+        src: files/index.html  # Path relative to the playbook directory
         dest: /var/www/html/index.html
-        remote_src: yes
-
